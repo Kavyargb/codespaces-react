@@ -1,25 +1,30 @@
+/* Award-Winning Subject Page Styles */
+
 /* -------------------------------------------------------------------------- */
 /*                             Layout & Structure                             */
 /* -------------------------------------------------------------------------- */
 
 .subject-page-container {
     display: grid;
-    grid-template-columns: minmax(200px, 1fr) 3fr minmax(200px, 1fr); /* Flexible columns */
-    gap: var(--grid-gap); /* Use a variable for consistency */
-    max-width: var(--container-max-width); /* Use a variable */
-    margin-inline: auto; /* Modern way to center */
-    padding: var(--container-padding);
+    grid-template-columns: minmax(250px, 0.25fr) 1fr minmax(250px, 0.25fr); /* More semantic and balanced columns */
+    gap: var(--spacing-lg); /* Use consistent spacing variables */
+    max-width: var(--container-width); /* More descriptive variable name */
+    margin-inline: auto;
+    padding-inline: var(--spacing-md); /* Consistent horizontal padding */
+    padding-block: var(--spacing-xl); /* Consistent vertical padding */
 }
 
 .subject-page-container .main-content {
-    text-align: start; /* More semantic than 'left' */
+    text-align: start;
+    position: relative; /* For potential absolute positioning of elements */
 }
 
 @media (max-width: 768px) {
     .subject-page-container {
         grid-template-columns: 1fr;
-        gap: var(--grid-gap-mobile); /* Smaller gap on mobile */
-        padding: var(--container-padding-mobile);
+        gap: var(--spacing-md); /* Adjusted gap for mobile */
+        padding-inline: var(--spacing-sm); /* Adjusted padding for mobile */
+        padding-block: var(--spacing-lg); /* Adjusted padding for mobile */
     }
 }
 
@@ -28,37 +33,47 @@
 /* -------------------------------------------------------------------------- */
 
 body {
-    font-family: var(--base-font-family); /* Define base font */
-    color: var(--text-color); /* Use a variable for text color */
-    background-color: var(--background-color); /* For overall theme */
-    line-height: 1.6; /* Improved readability */
-    -webkit-font-smoothing: antialiased; /* Better font rendering */
+    font-family: var(--font-body); /* More specific font variable */
+    color: var(--color-text-primary); /* More semantic color variable */
+    background-color: var(--color-background);
+    line-height: 1.7; /* Slightly increased for better readability */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; /* Optimize text rendering */
 }
 
 h2 {
-    margin-bottom: 0.75em; /* Use em for relative spacing */
-    font-size: var(--h2-font-size); /* Use a variable */
-    color: var(--primary-color); /* Consistent primary color */
-    border-bottom: 1px solid var(--border-color); /* Use a variable */
-    padding-bottom: 0.3125em; /* Relative padding */
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-h2);
+    font-weight: 600; /* Define font weight for headings */
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-border); /* Slightly thicker border */
+    padding-bottom: var(--spacing-sm);
+    letter-spacing: -0.02em; /* Subtle letter spacing for a refined look */
 }
 
 h3 {
-    font-size: var(--h3-font-size);
-    color: var(--primary-color);
-    margin-bottom: 0.625em;
+    font-size: var(--font-size-h3);
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
 }
 
 p {
-    font-size: var(--base-font-size);
-    line-height: 1.5;
+    font-size: var(--font-size-base);
+    line-height: 1.65; /* Fine-tuned line height */
+    color: var(--color-text-secondary); /* Consider a slightly less intense secondary text color */
 }
 
 a {
-    color: inherit; /* Inherit text color by default */
+    color: var(--color-link); /* Specific link color variable */
     text-decoration: none;
-    transition: color 0.3s ease-in-out; /* Smoother transition */
+    transition: color var(--transition-base); /* Use a base transition variable */
+}
+
+a:hover,
+a:focus {
+    color: var(--color-link-hover); /* Distinct hover color */
 }
 
 /* -------------------------------------------------------------------------- */
@@ -69,18 +84,26 @@ a {
     text-align: start;
 }
 
-.article-list h2 { /* Re-use the global h2 style */ }
+.article-list h2 { /* Inherits global h2 style */ }
 
 .article-list a {
     display: block;
-    padding: 0.75em 1em; /* Relative padding */
-    border-bottom: 1px solid var(--border-color);
+    padding-block: var(--spacing-sm);
+    padding-inline: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border-light); /* Lighter border for lists */
+    transition: background-color var(--transition-base), color var(--transition-base); /* Smooth transitions */
+}
+
+.article-list a:last-child {
+    border-bottom: none; /* Remove border from the last item */
 }
 
 .article-list a:hover,
-.article-list a:focus { /* Include focus for accessibility */
-    background-color: var(--secondary-background-color);
-    color: var(--primary-color-hover); /* Separate hover color */
+.article-list a:focus {
+    background-color: var(--color-background-secondary); /* Softer background on hover */
+    color: var(--color-primary-light); /* Lighter primary color on hover */
+    outline: none; /* Remove default focus outline */
+    box-shadow: inset 0 0 0 2px var(--color-primary-light); /* Add a subtle inset focus/hover effect */
 }
 
 /* -------------------------------------------------------------------------- */
@@ -89,36 +112,44 @@ a {
 
 .subject-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger min width */
-    gap: var(--card-gap);
-    padding-block-start: var(--section-padding-top); /* Block start for clarity */
-    margin-block-end: var(--section-margin-bottom);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly wider min width */
+    gap: var(--spacing-md);
+    padding-block-start: var(--spacing-lg);
+    margin-block-end: var(--spacing-xl);
 }
 
 .subject-card {
-    background-color: var(--card-background-color);
-    padding: 1.5625em; /* Relative padding */
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--card-box-shadow);
-    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out; /* Add transform */
+    background-color: var(--color-card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md); /* Use border-radius variable */
+    box-shadow: var(--shadow-md); /* Use shadow variable */
+    transition: box-shadow var(--transition-base), transform var(--transition-short); /* Shorter transform transition */
     text-align: center;
+    border: 1px solid transparent; /* For hover effect */
 }
 
 .subject-card:hover,
 .subject-card:focus {
-    box-shadow: var(--card-box-shadow-hover);
-    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: var(--shadow-lg); /* Larger shadow on hover */
+    transform: translateY(-5px); /* Slightly more pronounced lift */
+    outline: none; /* Remove default focus outline */
+    border-color: var(--color-primary-light); /* Subtle border highlight on hover/focus */
 }
 
 .subject-card .icon {
-    font-size: var(--icon-font-size);
-    margin-bottom: 0.9375em;
-    color: var(--primary-color);
+    font-size: var(--font-size-icon);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary-gradient-end); /* Consider a gradient for the icon */
+    background-image: linear-gradient(to bottom right, var(--color-primary), var(--color-primary-gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.subject-card h3 {} /* Re-use global h3 style */
+.subject-card h3 { /* Inherits global h3 style */ }
 
-.subject-card p {} /* Re-use global p style */
+.subject-card p {
+    color: var(--color-text-base); /* More general text color for cards */
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                  Topics                                    */
@@ -128,23 +159,32 @@ a {
     text-align: start;
 }
 
-.topics h2 {} /* Re-use global h2 style */
+.topics h2 { /* Inherits global h2 style */ }
 
 .sub-topic-list {
     padding: 0;
+    margin: 0; /* Reset default margin */
     list-style: none;
 }
 
 .sub-topic-list li a {
     display: block;
-    padding: 0.75em 1em;
-    border-bottom: 1px solid var(--border-color);
+    padding-block: var(--spacing-sm);
+    padding-inline: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.sub-topic-list li a:last-child {
+    border-bottom: none;
 }
 
 .sub-topic-list li a:hover,
 .sub-topic-list li a:focus {
-    background-color: var(--secondary-background-color);
-    color: var(--primary-color-hover);
+    background-color: var(--color-background-tertiary); /* Even softer background */
+    color: var(--color-primary-medium); /* Medium primary color on hover */
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--color-primary-medium);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -153,79 +193,105 @@ a {
 
 .sub-topic-page {
     text-align: start;
-    max-width: var(--content-max-width); /* Separate content width */
+    max-width: var(--content-width); /* More concise variable name */
     margin-inline: auto;
-    padding: var(--page-padding);
+    padding-inline: var(--spacing-md);
+    padding-block: var(--spacing-lg);
 }
 
 .sub-topic-page h1 {
-    margin-bottom: 0.75em;
-    font-size: var(--h1-font-size);
-    color: var(--primary-color);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.3125em;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-h1);
+    font-weight: 700; /* Stronger font weight for the main heading */
+    color: var(--color-heading); /* Specific heading color */
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: var(--spacing-sm);
+    letter-spacing: -0.03em; /* More pronounced letter spacing */
 }
 
 .sub-topic-page ul {
     padding: 0;
+    margin: 0;
     list-style: none;
 }
 
 .sub-topic-page ul li a {
     display: block;
-    padding: 0.75em 1em;
-    border-bottom: 1px solid var(--border-color);
+    padding-block: var(--spacing-sm);
+    padding-inline: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-short); /* Add transform transition */
+}
+
+.sub-topic-page ul li a:last-child {
+    border-bottom: none;
 }
 
 .sub-topic-page ul li a:hover,
 .sub-topic-page ul li a:focus {
-    background-color: var(--secondary-background-color);
-    color: var(--primary-color-hover);
+    background-color: var(--color-background-secondary-alt); /* Alternative secondary background */
+    color: var(--color-primary-dark); /* Darker primary color on hover */
+    outline: none;
+    transform: translateX(5px); /* Subtle slide on hover */
+    box-shadow: inset 0 0 0 2px var(--color-primary-dark);
 }
 
 /* -------------------------------------------------------------------------- */
 /*                                 Utilities                                  */
 /* -------------------------------------------------------------------------- */
 
-.u-text-center { text-align: center; } /* Example utility class */
-.u-margin-bottom-md { margin-bottom: 1.5em; } /* Example utility class */
+.u-text-center { text-align: center !important; } /* Add !important for utility classes */
+.u-margin-bottom-md { margin-bottom: var(--spacing-md) !important; }
 
 /* -------------------------------------------------------------------------- */
 /*                                 Variables                                  */
 /* -------------------------------------------------------------------------- */
 
 :root {
-    /* Layout */
-    --grid-gap: 30px;
-    --grid-gap-mobile: 20px;
-    --container-max-width: 1200px;
-    --container-padding: 1.25rem; /* Use rem for font-relative sizing */
-    --container-padding-mobile: 1rem;
-    --content-max-width: 960px;
-    --page-padding: 1.25rem;
-    --section-padding-top: 1.25rem;
-    --section-margin-bottom: 2.5rem;
-    --card-gap: 1.5625rem;
-    --card-border-radius: 0.625rem;
+    /* Layout & Spacing */
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1.25rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --container-width: 1280px; /* Slightly wider container */
+    --content-width: 1024px;
+    --border-radius-sm: 0.375rem;
+    --border-radius-md: 0.5rem;
 
     /* Typography */
-    --base-font-family: sans-serif; /* Consider a more specific font stack */
-    --base-font-size: 1rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.75rem;
-    --h3-font-size: 1.5rem;
-    --icon-font-size: 3rem;
+    --font-body: 'Inter', sans-serif; /* More modern and specific font */
+    --font-size-base: 1rem;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.6rem;
+    --font-size-icon: 3.5rem;
 
     /* Colors */
-    --primary-color: #64b5f6;
-    --primary-color-hover: #8ac6f7;
-    --secondary-background-color: #333;
-    --text-color: #ddd;
-    --background-color: #1e1e1e; /* Darker background */
-    --border-color: #444;
-    --card-background-color: #252525;
+    --color-primary: #64b5f6;
+    --color-primary-light: #8ac6f7;
+    --color-primary-medium: #7abdf6;
+    --color-primary-dark: #5aacf6;
+    --color-primary-gradient-end: #42a5f5;
+    --color-link: inherit; /* Still inherit by default, but can be overridden */
+    --color-link-hover: var(--color-primary-light);
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #aaa; /* Muted secondary text */
+    --color-text-base: #ccc;
+    --color-heading: var(--color-primary);
+    --color-background: #1a1a1a;
+    --color-background-secondary: #282828;
+    --color-background-tertiary: #303030;
+    --color-background-secondary-alt: #222;
+    --color-border: #555;
+    --color-border-light: #444;
+    --color-card-background: #252525;
 
     /* Shadows */
-    --card-box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
-    --card-box-shadow-hover: 0 6px 12px rgba(255, 255, 255, 0.2);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+    /* Transitions */
+    --transition-short: 0.2s ease-in-out;
+    --transition-base: 0.3s ease-in-out;
 }

@@ -9,31 +9,31 @@ import CTA from '../components/CTA';
 function Home() {
 
     const introItems = [
-      { icon: 'icons/quality.png', title: 'High-Quality Content', description: 'Expertly crafted notes by experienced educators.' },
-      { icon: 'icons/subjects.png', title: 'Extensive Subject Coverage', description: 'A wide range of subjects from STEM to humanities.' },
-      { icon: 'icons/time.png', title: 'Efficient Learning', description: 'Save time with comprehensive and clear explanations.' },
-    ];
+    { icon: 'icons/quality.png', title: 'High-Quality Content', description: 'Expertly crafted notes by experienced educators.' },
+    { icon: 'icons/subjects.png', title: 'Extensive Subject Coverage', description: 'A wide range of subjects from STEM to humanities.' },
+    { icon: 'icons/time.png', title: 'Efficient Learning', description: 'Save time with comprehensive and clear explanations.' },
+];
 
     const categories = [
-      { name: 'Mathematics', icon: 'icons/maths.png', link: '#' },
-      { name: 'Physics', icon: 'icons/physics.png', link: '#' },
-      { name: 'Chemistry', icon: 'icons/chemistry.png', link: '/Chemistry' },
-      { name: 'Biology', icon: 'icons/biology.png', link: '#' },
-      { name: 'Computer Science', icon: 'icons/programming.png', link: '#' },
-       { name: 'History', icon: 'icons/history.png', link: '#' },
-         { name: 'English Literature', icon: 'icons/english.png', link: '#' },
-     ];
+    { name: 'Mathematics', icon: 'icons/maths.png', link: '/mathematics' },
+    { name: 'Physics', icon: 'icons/physics.png', link: '/physics' },
+    { name: 'Chemistry', icon: 'icons/chemistry.png', link: '/chemistry' },
+    { name: 'Biology', icon: 'icons/biology.png', link: '/biology' },
+    { name: 'Computer Science', icon: 'icons/programming.png', link: '/computer-science' },
+        { name: 'History', icon: 'icons/history.png', link: '/history' },
+        { name: 'English Literature', icon: 'icons/english.png', link: '/english-literature' },
+    ];
 
-     const testimonials = [
-         { text: '"Neuron IQ helped me ace my exams! The notes are so clear and easy to understand."', author: 'Sarah J.' },
+    const testimonials = [
+        { text: '"Neuron IQ helped me ace my exams! The notes are so clear and easy to understand."', author: 'Sarah J.' },
         { text: '"I love how comprehensive and helpful the resources are. I can always find what I need!"', author: 'Alex M.' },
         { text: '"I have been using this since last year and have gotten better at studies!"', author: 'Mike' },
     ];
-       const resources = [
-         { title: 'Introduction to Calculus', description: 'A brief introduction to the fundamental concepts of Calculus.' },
-           { title: 'Quantum Mechanics', description: 'Introductory quantum mechanics notes for those interested in the subject.' },
-          { title: 'History of World War II', description: 'An exploration of events that led to World War II and its consequences.' },
-     ];
+    const resources = [
+        { title: 'Introduction to Calculus', description: 'A brief introduction to the fundamental concepts of Calculus.' },
+        { title: 'Quantum Mechanics', description: 'Introductory quantum mechanics notes for those interested in the subject.' },
+        { title: 'History of World War II', description: 'An exploration of events that led to World War II and its consequences.' },
+    ];
     return (
         <>
             <Hero
@@ -46,7 +46,7 @@ function Home() {
             <Categories categories={categories} />
             <Testimonials testimonials={testimonials} />
             <LatestResources resources={resources} />
-           <CTA title="Ready to Elevate Your Learning?" buttonText="Start Exploring Now" />
+        <CTA title="Ready to Elevate Your Learning?" buttonText="Start Exploring Now" />
         </>
     );
 }
