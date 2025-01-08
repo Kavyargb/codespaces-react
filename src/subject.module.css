@@ -1,0 +1,231 @@
+/* -------------------------------------------------------------------------- */
+/*                             Layout & Structure                             */
+/* -------------------------------------------------------------------------- */
+
+.subject-page-container {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) 3fr minmax(200px, 1fr); /* Flexible columns */
+    gap: var(--grid-gap); /* Use a variable for consistency */
+    max-width: var(--container-max-width); /* Use a variable */
+    margin-inline: auto; /* Modern way to center */
+    padding: var(--container-padding);
+}
+
+.subject-page-container .main-content {
+    text-align: start; /* More semantic than 'left' */
+}
+
+@media (max-width: 768px) {
+    .subject-page-container {
+        grid-template-columns: 1fr;
+        gap: var(--grid-gap-mobile); /* Smaller gap on mobile */
+        padding: var(--container-padding-mobile);
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Typography                                  */
+/* -------------------------------------------------------------------------- */
+
+body {
+    font-family: var(--base-font-family); /* Define base font */
+    color: var(--text-color); /* Use a variable for text color */
+    background-color: var(--background-color); /* For overall theme */
+    line-height: 1.6; /* Improved readability */
+    -webkit-font-smoothing: antialiased; /* Better font rendering */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+    margin-bottom: 0.75em; /* Use em for relative spacing */
+    font-size: var(--h2-font-size); /* Use a variable */
+    color: var(--primary-color); /* Consistent primary color */
+    border-bottom: 1px solid var(--border-color); /* Use a variable */
+    padding-bottom: 0.3125em; /* Relative padding */
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+    color: var(--primary-color);
+    margin-bottom: 0.625em;
+}
+
+p {
+    font-size: var(--base-font-size);
+    line-height: 1.5;
+}
+
+a {
+    color: inherit; /* Inherit text color by default */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; /* Smoother transition */
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Article List                                */
+/* -------------------------------------------------------------------------- */
+
+.article-list {
+    text-align: start;
+}
+
+.article-list h2 { /* Re-use the global h2 style */ }
+
+.article-list a {
+    display: block;
+    padding: 0.75em 1em; /* Relative padding */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.article-list a:hover,
+.article-list a:focus { /* Include focus for accessibility */
+    background-color: var(--secondary-background-color);
+    color: var(--primary-color-hover); /* Separate hover color */
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Subject Cards                              */
+/* -------------------------------------------------------------------------- */
+
+.subject-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger min width */
+    gap: var(--card-gap);
+    padding-block-start: var(--section-padding-top); /* Block start for clarity */
+    margin-block-end: var(--section-margin-bottom);
+}
+
+.subject-card {
+    background-color: var(--card-background-color);
+    padding: 1.5625em; /* Relative padding */
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out; /* Add transform */
+    text-align: center;
+}
+
+.subject-card:hover,
+.subject-card:focus {
+    box-shadow: var(--card-box-shadow-hover);
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+.subject-card .icon {
+    font-size: var(--icon-font-size);
+    margin-bottom: 0.9375em;
+    color: var(--primary-color);
+}
+
+.subject-card h3 {} /* Re-use global h3 style */
+
+.subject-card p {} /* Re-use global p style */
+
+/* -------------------------------------------------------------------------- */
+/*                                  Topics                                    */
+/* -------------------------------------------------------------------------- */
+
+.topics {
+    text-align: start;
+}
+
+.topics h2 {} /* Re-use global h2 style */
+
+.sub-topic-list {
+    padding: 0;
+    list-style: none;
+}
+
+.sub-topic-list li a {
+    display: block;
+    padding: 0.75em 1em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sub-topic-list li a:hover,
+.sub-topic-list li a:focus {
+    background-color: var(--secondary-background-color);
+    color: var(--primary-color-hover);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              Sub-Topic Page                                */
+/* -------------------------------------------------------------------------- */
+
+.sub-topic-page {
+    text-align: start;
+    max-width: var(--content-max-width); /* Separate content width */
+    margin-inline: auto;
+    padding: var(--page-padding);
+}
+
+.sub-topic-page h1 {
+    margin-bottom: 0.75em;
+    font-size: var(--h1-font-size);
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3125em;
+}
+
+.sub-topic-page ul {
+    padding: 0;
+    list-style: none;
+}
+
+.sub-topic-page ul li a {
+    display: block;
+    padding: 0.75em 1em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sub-topic-page ul li a:hover,
+.sub-topic-page ul li a:focus {
+    background-color: var(--secondary-background-color);
+    color: var(--primary-color-hover);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Utilities                                  */
+/* -------------------------------------------------------------------------- */
+
+.u-text-center { text-align: center; } /* Example utility class */
+.u-margin-bottom-md { margin-bottom: 1.5em; } /* Example utility class */
+
+/* -------------------------------------------------------------------------- */
+/*                                 Variables                                  */
+/* -------------------------------------------------------------------------- */
+
+:root {
+    /* Layout */
+    --grid-gap: 30px;
+    --grid-gap-mobile: 20px;
+    --container-max-width: 1200px;
+    --container-padding: 1.25rem; /* Use rem for font-relative sizing */
+    --container-padding-mobile: 1rem;
+    --content-max-width: 960px;
+    --page-padding: 1.25rem;
+    --section-padding-top: 1.25rem;
+    --section-margin-bottom: 2.5rem;
+    --card-gap: 1.5625rem;
+    --card-border-radius: 0.625rem;
+
+    /* Typography */
+    --base-font-family: sans-serif; /* Consider a more specific font stack */
+    --base-font-size: 1rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.5rem;
+    --icon-font-size: 3rem;
+
+    /* Colors */
+    --primary-color: #64b5f6;
+    --primary-color-hover: #8ac6f7;
+    --secondary-background-color: #333;
+    --text-color: #ddd;
+    --background-color: #1e1e1e; /* Darker background */
+    --border-color: #444;
+    --card-background-color: #252525;
+
+    /* Shadows */
+    --card-box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+    --card-box-shadow-hover: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
