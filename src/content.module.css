@@ -124,7 +124,7 @@
   
   /*  --- Table of Contents - Elevated Design --- */
   .table-of-content {
-    position: sticky;
+    position: sticky !important;
     top: 120px; /* Adjusted top spacing */
     text-align: left;
     padding: clamp(30px, 3vw, 45px); /* Responsive padding */

@@ -294,6 +294,7 @@ function App() {
       link: '/physics',
       description: (
         <>
+        <div style={{textAlign:'left'}}>
           <p><strong>Mechanics & Motion</strong></p>
           <ol>
             <li>The acceleration due to gravity on Earth is approximately 9.81 m/s².</li>
@@ -424,6 +425,7 @@ function App() {
             <li>Symmetry plays a crucial role in many areas of physics.</li>
             <li>Many physical phenomena can be described using mathematical equations.</li>
           </ol>
+          </div>
         </>
       ),
       subTopics: [
@@ -446,6 +448,7 @@ function App() {
       link: '/chemistry',
       description: (
         <>
+        <div style={{textAlign:'left'}}>
         <p><strong>Basic Chemistry & Composition</strong></p>
 <ol>
   <li>There are 118 known elements on the periodic table.</li>
@@ -641,6 +644,8 @@ function App() {
     <li>The precautionary principle is the idea that if an action has a suspected risk of causing harm, that burden of proof that it is not harmful falls on those taking the action.</li>
    <li>Many chemical pollutants can accumulate in the food chain, increasing in concentration at higher trophic levels (biomagnification).</li>
 </ol>
+</div>
+
         </>
       ),
       subTopics: [
@@ -656,14 +661,10 @@ function App() {
       ],
       articles: [
         {
-          title: 'Introduction to Atomic Structure',
+          title: 'Atomic Structure — Notes',
           content: (
             <>
-              <h2 id="intro-atomic-structure">Introduction to Atomic Structure</h2>
-              <p>This is an introduction to atomic structure.</p>
-              <h3 id="sub-section-atomic">Sub section in atomic structure</h3>
-              <p> This is a sub-section in atomic structure.
-              </p>
+              
             </>
           ),
           tableOfContents: [
